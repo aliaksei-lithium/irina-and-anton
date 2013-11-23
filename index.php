@@ -6,8 +6,7 @@
 <body>
 <h1>This is Irina and Anton wedding celebration page!</h1>
 <a href="addComment.html">Add your congratulation!</a>
-<div id="skrollr-body">
-    <h1>SVG IS AWESOME (so is skrollr)</h1>
+<div id="skrollr-body" style="text-align: center">
     <p>Scroll down for details</p>
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="900px" height="1200px">
         <path
@@ -84,7 +83,7 @@
 
 </div>
 
-<script type="text/javascript" src="../dist/skrollr.min.js"></script>
+<script type="text/javascript" src="/static/js/skrollr.min.js"></script>
 <script type="text/javascript">
     skrollr.init({
         forceHeight: false
