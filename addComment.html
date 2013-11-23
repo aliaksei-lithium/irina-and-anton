@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Irina and Anton</title>
+    <style>
+        #comment-form {
+            width: 550px
+        }
+        .line {
+            padding: 10px;
+        }
+        #comment-form label {
+            display: inline-block;
+            min-width: 200px;
+            vertical-align: top;
+        }
+        #owner-name,
+        #comment-text {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<h1>Add your Comment!</h1>
+
+<form id = "comment-form" action="addComment.php" metho d="post">
+    <div class="line">
+        <label for="owner-name">Name:</label>
+        <input type="text" id="owner-name" name = "owner-name"/>
+    </div>
+    <div class="line">
+        <label for="comment-text">Congratulations:</label>
+        <textarea id="comment-text"  name = "comment-text" rows="15" maxlength="500"></textarea>
+    </div>
+    <div class="line">
+        <button type="submit">And have fun!</button>
+    </div>
+</form>
+
+</body>
+</html>
