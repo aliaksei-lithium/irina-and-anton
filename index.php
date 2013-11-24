@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-<?php
-
-include_once("controller/CommentController.php");
-$commentsController = new CommentController();
-?>
-
 <html>
 <head>
     <title>Irina and Anton</title>
@@ -19,8 +13,8 @@ $commentsController = new CommentController();
 
     <!-- Loading Flat UI -->
     <link href="/static/FlatUI/css/flat-ui.css" rel="stylesheet">
+    <link href="/static/css/styles.css" rel="stylesheet">
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
     <script src="/static/FlatUI/js/html5shiv.js"></script>
     <![endif]-->
@@ -28,42 +22,6 @@ $commentsController = new CommentController();
     <script src="/static/js/main.js"></script>
     <link rel="icon"
           href="/favicon.ico" />
-
-    <style>
-        #galleria {
-            height: 467px;
-        }
-
-        .galleria-container {
-            margin: 0 auto;
-        }
-
-        blockquote {
-            border-left: 3px solid #e74c3c;
-        }
-
-        .transform-style-1 {
-            transform: scale(0) rotate(0deg); opacity: 1;
-            width:70%;
-            left:50%;
-            top:20%;
-            margin-left:-35%;
-            text-align:center;
-            font-size:150%;
-        }
-
-        .transform-style-2 {
-            width:100%;
-            height:100%;
-            padding-top:10%;
-            text-align:center;
-
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-
-        }
-    </style>
 </head>
 <body>
 <div class="container">
@@ -97,23 +55,6 @@ $commentsController = new CommentController();
         </div>
         <div class="col-sm-4"></div>
     </div>
-
-
-
-
-    <?php
-    //$comments = $commentsController->fetchAllComments();
-
-    /*foreach ($comments as $comment) {
-        printf('<div style="top: 100%; display: block;" class="properties skrollable skrollable-before" data-1700="top:100%;" data-2200="top:0%;" data-3000="display:block;" data-3700="top:-100%;display:none;">
-<div class="row" comment-id = "%d">  <div class="col-sm-4"></div>  <div class="col-sm-4">.
-                    <blockquote>
-                    <p>%s</p>
-                    <small>%s</small>
-                </blockquote></div>  <div class="col-sm-4"></div></div> </div>', $comment["comment_id"], $comment["text"], $comment["owner_name"]);
-    }*/
-
-    ?>
 
     <div style="min-height: 600px; top: 100%; border-radius: 0; background-color: #ecf0f1; border-width: 0;"
          class="skrollable skrollable-before" id="download"

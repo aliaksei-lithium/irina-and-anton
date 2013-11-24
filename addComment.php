@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<?php
-/*  require_once('controller/CommentController.php');
-  $c = new CommentController();*/
-?>
 <html>
 <head>
     <title>Irina and Anton</title>
@@ -29,20 +25,20 @@
         <div class="col-md-4">
             <h3>Put your congratulations</h3>
 
-            <form id="comment-form" action="route.php" method="post">
+            <form id="comment-form" action="route.php" method="post" >
                 <input type="hidden" name="cmd" value="add">
-                <div class="line">
+                <div class="line form-group">
                     <label for="owner-name">Your name:</label>
                     <input type="text" id="owner-name" name="owner-name" class="form-control"/>
                 </div>
-                <div class="line">
+                <div class="line form-group">
                     <label for="comment-text">Congratulations:</label>
                     <textarea id="comment-text" name="comment-text" rows="15" maxlength="500"
                               class="form-control"></textarea>
                 </div>
                 <div class="line">
-                    <button style="width: 15%" class="btn btn-lg btn-danger" onclick="gotoIndex();">Cancel</button>
-                    <button style="width: 83%" class="btn btn-lg btn-success" type="submit">Do it!</button>
+                    <button style="width: 15%" class="btn btn-lg btn-danger" onclick="gotoIndex();  return false;">Cancel</button>
+                    <button style="width: 83%" class="btn btn-lg btn-success" type="submit" onclick="submitComment(); return false;">Do it!</button>
                 </div>
             </form>
 
@@ -59,11 +55,7 @@
 <script src="/static/FlatUI/js/jquery.ui.touch-punch.min.js"></script>
 <script src="/static/FlatUI/js/bootstrap.min.js"></script>
 <script src="/static/FlatUI/js/jquery.placeholder.js"></script>
+<script src="/static/js/main.js"></script>
 
-<script>
-    function gotoIndex() {
-        window.location.href = "/index.php"
-    }
-</script>
 </body>
 </html>
