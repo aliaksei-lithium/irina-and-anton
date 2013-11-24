@@ -33,28 +33,49 @@
 <div style="opacity: 1; top: 3%; transform: rotate(0deg); transform-origin: 0px 0px 0px;" class="skrollable skrollable-between" id="intro" data-0="opacity:1;top:3%;transform:rotate(0deg);transform-origin:0 0;" data-500="opacity:0;top:-10%;transform:rotate(-90deg);">
     <h1 >Irina and Anton wedding celebration page!</h1>
     <p class="lead" >from dear colleagues with love</p>
-    <div style=""><img style="" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box">
-        <button style="" onclick="gotoComments();" class="btn btn-md btn-primary" >Add your congratulation!</button>
+    <div><img style="" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box">
+        <button  onclick="gotoComments();" class="btn btn-md btn-primary" >Add your congratulation!</button>
     </div>
     <p class="arrows">▼&nbsp;▼&nbsp;▼</p>
 </div>
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-            <div style="" class="transform-style-1 skrollable skrollable-before"
-                 data-500="transform:scale(0) rotate(0deg);"
-                 data-1000="transform:scale(1) rotate(1440deg);opacity:1;"
-                 data-1600=""
-                 data-1700="transform:scale(5) rotate(3240deg);opacity:0;">
-                <blockquote>
-                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                        Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.</p>
-                    <small>Steve Jobs, CEO Apple</small>
-                </blockquote>
-            </div>
-        </div>
-        <div class="col-sm-4"></div>
+
+    <div class="transform-style-1 skrollable skrollable-before"
+         data-500="transform:scale(0) rotate(0deg);"
+         data-1000="transform:scale(1) rotate(1440deg);opacity:1;"
+         data-1600=""
+         data-1700="transform:scale(5) rotate(3240deg);opacity:0;">
+        <blockquote>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.</p>
+            <small>Steve Jobs, CEO Apple</small>
+        </blockquote>
     </div>
+
+
+    <div
+         class="transform-style-2 skrollable skrollable-before"
+         data-1700="top:100%;"
+         data-2200="top:0%;"
+         data-3000="display:block;"
+         data-3700="top:-100%;display:none;">
+        <blockquote>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.</p>
+            <small>Steve Jobs, CEO Apple</small>
+        </blockquote>
+    </div>
+
+
+    <div class="transform-style-3 skrollable skrollable-between"
+        data-3900="left:100%"
+        data-4600="left:25%;">
+        <blockquote>
+            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.</p>
+            <small>Steve Jobs, CEO Apple</small>
+        </blockquote>
+    </div>
+
 
     <div style="min-height: 600px; top: 100%; border-radius: 0; background-color: #ecf0f1; border-width: 0;"
          class="skrollable skrollable-before" id="download"
