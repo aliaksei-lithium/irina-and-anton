@@ -1,20 +1,22 @@
 #comment-form {
     width: 550px
 }
+
 .line {
     padding: 10px;
 }
+
 #comment-form label {
     display: inline-block;
     min-width: 200px;
     vertical-align: top;
 }
+
 #owner-name,
 #comment-text {
     width: 100%;
     resize: none;
 }
-
 
 #galleria {
     height: 467px;
@@ -35,20 +37,21 @@ blockquote {
 }
 
 .transform-style-1 {
-    transform: scale(0) rotate(0deg); opacity: 1;
-    width:70%;
-    left:50%;
-    top:20%;
-    margin-left:-35%;
-    text-align:center;
-    font-size:150%;
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+    width: 70%;
+    left: 50%;
+    top: 20%;
+    margin-left: -35%;
+    text-align: center;
+    font-size: 150%;
 }
 
 .transform-style-2 {
-    width:100%;
-    height:100%;
-    padding-top:10%;
-    text-align:center;
+    width: 100%;
+    height: 100%;
+    padding-top: 10%;
+    text-align: center;
 
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -57,6 +60,7 @@ blockquote {
 }
 
 .transform-style-3 {
+    display: none;
     top: 10%;
     width: 50%;
     z-index: 101;

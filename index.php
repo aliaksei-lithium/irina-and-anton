@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Irina and Anton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="/static/css/fixed-positioning.css" rel="stylesheet" type="text/css">
     <link href="/static/css/main.css" rel="stylesheet" type="text/css">
@@ -38,7 +39,7 @@
     <div><img style="" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box">
         <button  onclick="gotoComments();" class="btn btn-md btn-primary" >Add your congratulation!</button>
     </div>
-    <p class="arrows">▼&nbsp;▼&nbsp;▼</p>
+    <p class="arrows">&#9660;&nbsp;&#9660;&nbsp;&#9660;</p>
 </div>
 <div class="comments-wrapper">
 
