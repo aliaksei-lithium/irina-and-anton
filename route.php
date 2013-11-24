@@ -16,6 +16,11 @@ if (isset($_POST["cmd"])) {
         case 'delete':
             deleteComment();
             break;
+        case 'fetch':
+            fetchAllComments();
+            break;
+        default:
+            break;
     }
 }
 
@@ -29,5 +34,13 @@ function addComment()
 {
     $commentsController = new CommentController();
     $commentsController->addComment(new Comment($_POST["owner-name"], $_POST["comment-text"]));
+
+}
+
+function fetchAllComments()
+{
+    $commentsController = new CommentController();
+    $comments = $commentsController->fetchAllComments();
+    echo json_encode($comments);
 
 }
