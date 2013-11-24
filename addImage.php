@@ -23,22 +23,18 @@
             <div style="padding: 100px 0; "><img style="margin: auto; display: block; height: 150px; width: 150px" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box"></div>
         </div>
         <div class="col-md-4">
-            <h3>Put your congratulations</h3>
+            <h3>Add image to gallery</h3>
 
-            <form id="comment-form" action="route.php" method="post" >
-                <input type="hidden" name="cmd" value="add">
+            <form id="image-form" action="route.php" method="post" >
+                <input type="hidden" name="cmd" value="addImage">
                 <div class="line form-group">
-                    <label for="owner-name">Your name:</label>
-                    <input type="text" id="owner-name" name="owner-name" class="form-control"/>
-                </div>
-                <div class="line form-group">
-                    <label for="comment-text">Congratulations:</label>
-                    <textarea id="comment-text" name="comment-text" rows="15" maxlength="500"
+                    <label for="image-text">Image url:</label>
+                    <textarea id="image-text" name="image-text" rows="4" maxlength="500"
                               class="form-control"></textarea>
                 </div>
                 <div class="line">
-                    <button style="width: 15%" class="btn btn-lg btn-danger" onclick="gotoIndex();  return false;">Cancel</button>
-                    <button style="width: 83%" class="btn btn-lg btn-success" type="submit" onclick="submitComment(); return false;">Do it!</button>
+                    <button style="width: 25%" class="btn btn-lg btn-danger" onclick="gotoImages();  return false;">Cancel</button>
+                    <button style="width: 70%" class="btn btn-lg btn-success" type="submit" onclick="submitImage(); return false;">Do it!</button>
                 </div>
             </form>
 

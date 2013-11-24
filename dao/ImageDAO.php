@@ -48,7 +48,7 @@ class ImageDAO
     {
         $conn = $this->getConn();
         $stmt = $conn->prepare($this->insertStmt);
-        $stmt->bind_param('ss', $entity->getText());
+        $stmt->bind_param('s', $entity->getText());
 
         $stmt->execute();
 

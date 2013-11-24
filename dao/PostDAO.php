@@ -3,7 +3,7 @@
 class PostDAO
 {
     private $connectionManager;
-    private $selectAllSql = "SELECT * FROM post";
+    private $selectAllSql = "SELECT * FROM post order by post_id desc";
     private $insertStmt = "INSERT INTO post (post_text) VALUES(?)";
     private $deleteStmt = "DELETE FROM post WHERE post_id = ?";
 
@@ -48,7 +48,7 @@ class PostDAO
     {
         $conn = $this->getConn();
         $stmt = $conn->prepare($this->insertStmt);
-        $stmt->bind_param('ss', $entity->getText());
+        $stmt->bind_param('s', $entity->getText());
 
         $stmt->execute();
 

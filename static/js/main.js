@@ -35,6 +35,56 @@ function submitComment() {
    }
 }
 
+function gotoImages() {
+    window.location.href = "/gallery.php"
+}
+
+function gotoImageForm() {
+    window.location.href = "/addImage.php"
+}
+
+function submitImage() {
+    var $form = $("#image-form"),
+        $text = $("#image-text"),
+        isValid = true;
+    if ($text.val().length === 0) {
+        $text.stop().animate({borderColor: "#E74C3C"}, "fast")
+            .delay("500").animate({borderColor: "#BDC3C7"}, "fast");
+        $text.focus();
+        isValid = false;
+    }
+   if (isValid) {
+       $form.submit();
+   }
+}
+
+function gotoBlog() {
+    window.location.href = "/blog.php"
+}
+
+function gotoPostForm() {
+    window.location.href = "/addPost.php"
+}
+
+function submitPost() {
+    var $form = $("#post-form"),
+        $text = $("#post-text"),
+        isValid = true;
+		
+		tinyMCE.get(0).save();
+		
+    if ($text.val().length === 0) {
+        $text.stop().animate({borderColor: "#E74C3C"}, "fast")
+            .delay("500").animate({borderColor: "#BDC3C7"}, "fast");
+        $text.focus();
+        isValid = false;
+    }
+   if (isValid) {
+       $form.submit();
+   }
+}
+
+
 function setFocus() {
     $("#owner-name").focus();
 }

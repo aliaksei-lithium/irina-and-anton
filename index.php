@@ -39,7 +39,10 @@
     <p class="lead" >from dear colleagues with love</p>
     <div>
         <img style="cursor: pointer" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box" onclick="gotoComments();">
-        <button  style = "margin-left: 10px" onclick="gotoComments();" class="btn btn-md btn-primary" >Add your congratulation!</button>
+        <button  style = "margin-left: 10px" onclick="gotoComments();" class="btn btn-md btn-danger" >Add your congratulation!</button>
+		
+		<button  style = "margin-left: 10px" onclick="gotoImages();" class="btn btn-md btn-info" >Gallery</button>
+		<button  style = "margin-left: 10px" onclick="gotoBlog();" class="btn btn-md btn-info" >Blog</button>
     </div>
 <div style = "margin-top: 25px;">
     <a id = "photos-link" href="#photos">credits</a>
@@ -56,7 +59,7 @@
          id="photos">
     <h6 style="text-align: center">Thank you!</h6>
         <div style = "width: 670px; margin: 0 auto;">
-            <img style=" width: 670px; height: 367px;" src="http://l-oo.ru/_ph/6/346710612.jpg"  />
+            <img style=" width: 670px; height: 367px;"  class="img-rounded img-responsive" src="http://l-oo.ru/_ph/6/346710612.jpg"  />
         </div>
         <div style="font-size: 14px; position: absolute; bottom: 0; padding: 10px">
             Designed by <a href="mailto:aliaksei_zhynhiarouski@epam.com">Aliaksei Zhynhiarouski</a> and <a href="mailto:Anton_Siamashka@epam.com">Anton Siamashka</a><br />
