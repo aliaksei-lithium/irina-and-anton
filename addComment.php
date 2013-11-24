@@ -41,8 +41,8 @@
                               class="form-control"></textarea>
                 </div>
                 <div class="line">
-                    <button style="width: 15%" class="btn btn-lg btn-danger" onclick="gotoIndex();  return false;">Cancel</button>
-                    <button style="width: 83%" class="btn btn-lg btn-success" type="submit" onclick="submitComment(); return false;">Do it!</button>
+                    <button style="width: 20%" class="btn btn-lg btn-danger" onclick="gotoIndex();  return false;">Cancel</button>
+                    <button style="width: 78%" class="btn btn-lg btn-success" type="submit" onclick="submitComment(); return false;">Do it!</button>
                 </div>
             </form>
 
