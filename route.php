@@ -2,6 +2,7 @@
 
 require_once("controller/CommentController.php");
 require_once("entity/Comment.php");
+require_once("entity/Image.php");
 
 if (isset($_POST["cmd"])) {
     switch ($_POST['cmd']) {
@@ -44,4 +45,12 @@ function fetchAllComments()
     //header('Content-Type: application/json; charset=utf-8');
     echo json_encode($comments);
 
+}
+
+
+function fetchAllImages()
+{
+    $commentsController = new CommentController();
+    $images = $commentsController->fetchAllImages();
+	return $images;
 }
