@@ -67,13 +67,13 @@ class CommentController
 	public function addPost($post)
     {
         $this->postDAO->add($post);
-        header('Location: index.php');
+        header('Location: blog.php');
     }
 
     public function deletePost($id)
     {
         $this->postDAO->delete($id);
-        header('Location: gallery.php');
+        header('Location: blog.php');
     }
 
     public function fetchAllPosts()

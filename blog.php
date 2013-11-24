@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Irina and Anton gallery</title>
+	<title>Irina and Anton blog</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
+	
 	
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 	<link rel="stylesheet" href="/static/fotorama.css">
@@ -19,6 +20,7 @@
 		<!-- header -->
 		<div style="letter-spacing: 1px; margin: 15px 0 30px; font-weight: bold; font-size: 16px;">
 			
+
 		</div>
 		<!-- /header -->
 	</div>
@@ -26,36 +28,29 @@
 	<div class="wrapper" style="z-index: 100;">
 
 		<header class="header" style="z-index: 100;">
+			<h1 class="logo">Microblog</h1>
 			
-			<h1 class="logo">Gallery</h1>
 		</header>
 
 		<div class="posts" style="z-index: 100;" >
-			<article class="post">
+			<article class="twit-post">
 				<div class="post__content">
 					<button  style = "margin-left: 10px" onclick="gotoIndex();" class="btn btn-md btn-info" >Back</button>
-					<button  style = "margin-left: 10px" onclick="gotoImageForm();" class="btn btn-md btn-info" >Add image</button>
+					<button  style = "margin-left: 10px" onclick="gotoPostForm();" class="btn btn-md btn-info" >Add post</button>
 				</div>
 			</article>
-			<article class="post">
-				<h2 class="post__title">Irina&Anton</h2>
-				<div class="post__content">
-
-					<div class="fotorama" data-width="100%" data-height="auto" data-aspectRatio="1.5" data-nav="dots"> <!-- 960/660 = 1.5-->
-						<?php
-							require_once("route.php");
-							$images = fetchAllImages();
-							
-							foreach($images as $image) {
-							   echo '<a href='.$image["image_url"].'><img src='.$image["image_url"].'></a>';
-							}
-						?>
-
-					</div>
-				</div>
-			</article>
-
-
+			<?php
+				require_once("route.php");
+				$posts = fetchAllPosts();
+				
+				foreach($posts as $twit) {
+					echo '<article class="twit-post">';
+					echo '<div class="post__content">';
+				    echo html_entity_decode(htmlspecialchars_decode($twit["post_text"]));
+					echo '</div>';
+					echo '</article>';
+				}
+			?>
 
 		</div>
 

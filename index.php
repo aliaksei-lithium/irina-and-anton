@@ -2,6 +2,9 @@
 <html>
 <head>
     <title>Irina and Anton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
 
     <link href="/static/css/fixed-positioning.css" rel="stylesheet" type="text/css">
     <link href="/static/css/main.css" rel="stylesheet" type="text/css">
@@ -35,10 +38,18 @@
      data-500="opacity:0;top:-10%;transform:rotate(-90deg);">
     <h1 >Irina and Anton wedding celebration page!</h1>
     <p class="lead" >from dear colleagues with love</p>
-    <div><img style="" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box">
-        <button  onclick="gotoComments();" class="btn btn-md btn-primary" >Add your congratulation!</button>
+    <div>
+        <img style="cursor: pointer" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box" onclick="gotoComments();">
+        <button  style = "margin-left: 10px" onclick="gotoComments();" class="btn btn-md btn-danger" >Add your congratulation!</button>
+		
+		<button  style = "margin-left: 10px" onclick="gotoImages();" class="btn btn-md btn-info" >Gallery</button>
+		<button  style = "margin-left: 10px" onclick="gotoBlog();" class="btn btn-md btn-info" >Blog</button>
     </div>
-    <p class="arrows">▼&nbsp;▼&nbsp;▼</p>
+<div style = "margin-top: 25px;">
+    <a id = "photos-link" href="#photos">Photo gallery</a>
+</div >
+
+    <p class="arrows">&#9660;&nbsp;&#9660;&nbsp;just scroll&nbsp;&#9660;&nbsp;&#9660;</p>
 </div>
 <div class="comments-wrapper">
 
@@ -46,8 +57,8 @@
 </div>
 
     <div style="min-height: 600px;"
-         id="download" >
-    <h6 style="text-align: center">PHOTOS WANT TO BE HERE!</h6>
+         id="photos">
+    <h6 style="text-align: center">Share your photo</h6>
     <div id="galleria">
         <a href="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/800px-Biandintz_eta_zaldiak_-_modified2.jpg">
             <img
@@ -122,11 +133,17 @@
                 >
         </a>
     </div>
+        <div style="font-size: 14px; position: absolute; bottom: 0; padding: 10px">
+            Designed by <a href="mailto:aliaksei_zhynhiarouski@epam.com">Aliaksei Zhynhiarouski</a> <br />
+            Github: <a href="https://github.com/daigotsu/irina-and-anton">Irina and Anton project</a> <br />
+            Copyright © 2013, license <a href="https://github.com/daigotsu/irina-and-anton/blob/master/LICENSE">MIT</a>
+        </div>
 </div>
 
 <div style="top: 0; margin-top: 2px;" class="skrollable skrollable-between" id="scrollbar" data-0="top:0%;margin-top:2px;" data-end="top:100%;margin-top:-52px;"></div>
 </div>
 <script type="text/javascript" src="/static/js/skrollr.min.js"></script>
+<script type="text/javascript" src="/static/js/skrollr.menu.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="/static/js/galleria-1.3.3.min.js"></script>
 <script src="/static/twelve/galleria.twelve.min.js"></script>
@@ -145,97 +162,7 @@
         APP.printComments(APP.comments);
     });
 
-    APP._startTime = 500;
-    APP.pictureTransform = {
-        style : {
-            duration : 2000,
-            klass: "skrollable skrollable-before",
-            steps : [
-                {count: 0, value: "display:block;top[cubic]:100%;border-radius[cubic]:0em;background:rgb(0,50,100);border-width:0px;"},
-                {count: 2000, value: "top:10%;border-radius:2em;background:rgb(236,240,241);border-width:10px;"}
-            ]
-        }
-    };
-    APP.transforms = [
-        {"style": {
-            duration: 1200,
-            klass: "transform-style-1 skrollable skrollable-before",
-            steps: [
-                {count: 0, value: "transform:scale(0) rotate(0deg);"},
-                {count: 500, value: "transform:scale(1) rotate(1440deg);opacity:1;"},
-                {count: 600, value: ""},
-                {count: 100, value: "transform:scale(5) rotate(3240deg);opacity:0;"}
-            ]
-        }
-        },
 
-        {"style": {
-            duration: 2000,
-            klass: "transform-style-2 skrollable skrollable-before",
-            steps: [
-                {count: 0, value: "top:100%;"},
-                {count: 500, value: "top:0%;"},
-                {count: 800, value: "display:block;"},
-                {count: 700, value: "top:-100%;display:none;"}
-            ]
-
-        }},
-
-        {"style": {
-            duration: 1600,
-            klass: "transform-style-3 skrollable skrollable-between",
-            steps: [
-                {count: 0, value: "left:100%;display:block;"},
-                {count: 700, value: "left:25%;"},
-                {count: 400, value: ""},
-                {count: 500, value: "left:-20%; display:none;"}
-            ]
-        }}
-    ];
-
-    APP.printComments = function(comments) {
-        var wrapper = $(".comments-wrapper");
-        for (var i = 0, len = comments.length; i < len; i++) {
-            var elem = APP.transforms[Math.floor(Math.random()*APP.transforms.length)];
-            var $block = APP._createCommentBlock(comments[i]);
-            APP._stylishCommentBlock($block, elem.style);
-
-            wrapper.append($block);
-        }
-        APP.addPictures();
-        APP.initSkroll();
-    };
-
-    APP._createCommentBlock = function(comment) {
-        var $block = $("<div></div>").addClass("comment-block").attr("comm_id", comment.comment_id)
-            .append($("<blockquote></blockquote>")
-                .append($("<p></p>").text(comment.text))
-                .append($("<small></small>").text(comment.owner_name))
-            );
-        return $block;
-    };
-
-    APP._stylishCommentBlock = function($block, style) {
-        var steps = style.steps;
-        $block.addClass(style.klass);
-        for (var i = 0, len = steps.length; i < len; i++) {
-            APP._startTime += steps[i].count;
-            $block.attr("data-" + APP._startTime , steps[i].value);
-        }
-    };
-
-    APP.addPictures = function() {
-        var $block = $("#download");
-        APP._stylishCommentBlock($block, APP.pictureTransform.style);
-    };
-
-    APP.initSkroll = function() {
-        var s = skrollr.init({
-            edgeStrategy: 'set'
-        });
-
-        $("body").css("height", APP._startTime + 1000);
-    }
 </script>
 
 </body>

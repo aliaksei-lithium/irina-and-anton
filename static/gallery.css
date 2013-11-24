@@ -63,11 +63,16 @@ body {
 
 
 /* Posts */
+.twit-post {
+	margin-bottom:2em;
+	padding:0.5em;
+	background: white;
+}
 .post {
 	margin-bottom:2em;
 	}
 	.post:after {
-		content:"#";
+		content:"";
 		display:block;
 		margin-top:-.25em;
 		text-align:center;
