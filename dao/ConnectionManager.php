@@ -3,7 +3,7 @@
 class ConnectionManager
 {
     private $hostname = "localhost";
-    private $username = "irinaand_anton";
+    private $username = "root";
     private $password = "12345qwert";
     private $database = "irinaand_anton";
 
@@ -11,7 +11,11 @@ class ConnectionManager
 
     public function createConnection()
     {
-        $this->mysqli = new mysqli($this->hostname, $this->username, $this->password, $this->database);
+        $link = new mysqli($this->hostname, $this->username, $this->password, $this->database);
+
+        mysqli_set_charset($link, 'utf8');
+
+        $this->mysqli = $link;
 
         if (mysqli_connect_errno()) {
             printf("Connect failed: %s\n", mysqli_connect_error());

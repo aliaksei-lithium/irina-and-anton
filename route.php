@@ -2,6 +2,7 @@
 
 require_once("controller/CommentController.php");
 require_once("entity/Comment.php");
+require_once("entity/Image.php");
 
 if (isset($_POST["cmd"])) {
     switch ($_POST['cmd']) {
@@ -33,7 +34,7 @@ function deleteComment()
 function addComment()
 {
     $commentsController = new CommentController();
-    $commentsController->addComment(new Comment($_POST["owner-name"], $_POST["comment-text"]));
+    $commentsController->addComment(new Comment(htmlentities($_POST["owner-name"]), htmlentities($_POST["comment-text"])));
 
 }
 
@@ -41,6 +42,15 @@ function fetchAllComments()
 {
     $commentsController = new CommentController();
     $comments = $commentsController->fetchAllComments();
+    //header('Content-Type: application/json; charset=utf-8');
     echo json_encode($comments);
 
+}
+
+
+function fetchAllImages()
+{
+    $commentsController = new CommentController();
+    $images = $commentsController->fetchAllImages();
+	return $images;
 }
