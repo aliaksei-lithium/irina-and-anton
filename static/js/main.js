@@ -97,7 +97,7 @@ APP.printComments = function(comments) {
 APP._createCommentBlock = function(comment) {
     var $block = $("<div></div>").addClass("comment-block").attr("comm_id", comment.comment_id)
         .append($("<blockquote></blockquote>")
-            .append($("<p></p>").html(comment.text.replace(/\n/g, "<br />")))
+            .append($("<p></p>").html(comment.text))
             .append($("<small></small>").text(comment.owner_name))
         );
     return $block;
