@@ -1,54 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Fotorama example</title>
-	<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-	<link rel="stylesheet" href="/static/fotorama.css">
-	<link rel="stylesheet" href="/static/gallery.css">
-	<script type="text/javascript" src="/static/fotorama.js"></script>
+    <title>Irina and Anton gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- Loading Bootstrap -->
+    <link href="/static/FlatUI/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="/static/FlatUI/css/flat-ui.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/static/twelve/galleria.twelve.css">
+
+    <style>
+        body {
+            background: url(/static/images/bubbles_opacity.png) repeat 0 0;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        #galleria {
+            margin: 0 auto;
+            width: 800px;
+            height: 467px;
+        }
+
+        .buttons-group {
+            width: 200px;
+            margin: 170px auto 0 30px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
-<body style="background-position: 0 0; background: url(/static/images/bubbles_opacity.png) repeat 0 0;width: 100%;height: 100%; z-index: 50;">
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="buttons-group">
+                <button onclick="gotoIndex();" class="btn btn-lg btn-info">Back</button>
+                <button onclick="gotoImageForm();" class="btn btn-lg btn-primary">Add image</button>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h2 style="text-align: center;">Gallery</h2>
 
-	<div class="fotorama-header" style="z-index: 100;">
-		<!-- header -->
-		<div style="letter-spacing: 1px; margin: 15px 0 30px; font-weight: bold; font-size: 16px;">
-			<a href="/index.php" style="text-decoration: none; color: #000;">back</a>
-		</div>
-		<!-- /header -->
-	</div>
+            <div id="galleria">
+                <?php
+                require_once("route.php");
+                $images = fetchAllImages();
 
-	<div class="wrapper" style="z-index: 100;">
+                foreach ($images as $image) {
+                    echo '<a href=' . $image["image_url"] . '><img src=' . $image["image_url"] . '></a>';
+                }
+                ?>
 
-		<header class="header" style="z-index: 100;">
-			<h1 class="logo">Gallery</h1>
-			
-		</header>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
 
-		<div class="posts" style="z-index: 100;" >
-			<article class="post">
-				<h2 class="post__title">Irina&Anton</h2>
-				<div class="post__content">
+<script src="/static/js/galleria-1.3.3.min.js"></script>
+<script src="/static/twelve/galleria.twelve.min.js"></script>
+<script src="/static/js/main.js"></script>
 
-					<div class="fotorama" data-width="100%" data-height="auto" data-aspectRatio="1.5" data-nav="dots"> <!-- 960/660 = 1.5-->
-						<?php
-							require_once("route.php");
-							$images = fetchAllImages();
-							
-							foreach($images as $image) {
-							   echo '<a href='.$image["image_url"].'><img src='.$image["image_url"].'></a>';
-							}
-						?>
-
-					</div>
-				</div>
-			</article>
-
-
-
-		</div>
-
-	</div>
-
-
+<script>
+    $('#galleria').galleria({
+        width: 800,
+        height: 467
+    });
+</script>
 </body>
 </html>

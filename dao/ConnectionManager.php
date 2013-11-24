@@ -3,7 +3,7 @@
 class ConnectionManager
 {
     private $hostname = "localhost";
-    private $username = "root";
+    private $username = "irinaand_anton";
     private $password = "12345qwert";
     private $database = "irinaand_anton";
 
