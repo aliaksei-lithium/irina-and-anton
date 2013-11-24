@@ -30,7 +30,9 @@
 <div style="background-position: 0 0; opacity: 0.5" class="skrollable skrollable-between" id="bg2" data-0="background-position:0px 0px;" data-end="background-position:-500px -8000px;"></div>
 <div style="background-position: 0 0; opacity: 0.5" class="skrollable skrollable-between" id="bg3" data-0="background-position:0px 0px;" data-end="background-position:-500px -6000px;"></div>
 
-<div style="opacity: 1; top: 3%; transform: rotate(0deg); transform-origin: 0px 0px 0px;" class="skrollable skrollable-between" id="intro" data-0="opacity:1;top:3%;transform:rotate(0deg);transform-origin:0 0;" data-500="opacity:0;top:-10%;transform:rotate(-90deg);">
+<div class="skrollable skrollable-between" id="intro"
+     data-0="opacity:1;top:3%;transform:rotate(0deg);transform-origin:0 0;"
+     data-500="opacity:0;top:-10%;transform:rotate(-90deg);">
     <h1 >Irina and Anton wedding celebration page!</h1>
     <p class="lead" >from dear colleagues with love</p>
     <div><img style="" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box">
@@ -38,49 +40,13 @@
     </div>
     <p class="arrows">▼&nbsp;▼&nbsp;▼</p>
 </div>
-
-    <div class="transform-style-1 skrollable skrollable-before"
-         data-500="transform:scale(0) rotate(0deg);"
-         data-1000="transform:scale(1) rotate(1440deg);opacity:1;"
-         data-1600=""
-         data-1700="transform:scale(5) rotate(3240deg);opacity:0;">
-        <blockquote>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.</p>
-            <small>Steve Jobs, CEO Apple</small>
-        </blockquote>
-    </div>
+<div class="comments-wrapper">
 
 
-    <div
-         class="transform-style-2 skrollable skrollable-before"
-         data-1700="top:100%;"
-         data-2200="top:0%;"
-         data-3000="display:block;"
-         data-3700="top:-100%;display:none;">
-        <blockquote>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.</p>
-            <small>Steve Jobs, CEO Apple</small>
-        </blockquote>
-    </div>
+</div>
 
-
-    <div class="transform-style-3 skrollable skrollable-between"
-        data-3900="left:100%"
-        data-4600="left:25%;">
-        <blockquote>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus.</p>
-            <small>Steve Jobs, CEO Apple</small>
-        </blockquote>
-    </div>
-
-
-    <div style="min-height: 600px; top: 100%; border-radius: 0; background-color: #ecf0f1; border-width: 0;"
-         class="skrollable skrollable-before" id="download"
-         data-10000="top[cubic]:100%;border-radius[cubic]:0em;background:rgb(0,50,100);border-width:0px;"
-         data-12000="top:10%;border-radius:2em;background:rgb(236,240,241);border-width:10px;">
+    <div style="min-height: 600px;"
+         id="download" >
     <h6 style="text-align: center">PHOTOS WANT TO BE HERE!</h6>
     <div id="galleria">
         <a href="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/800px-Biandintz_eta_zaldiak_-_modified2.jpg">
@@ -168,9 +134,6 @@
 <script type="text/javascript">
     var APP = APP || {};
 
-    var s = skrollr.init({
-        edgeStrategy: 'set'
-    });
     $('#galleria').galleria({
         width: 800,
         height: 467
@@ -179,7 +142,100 @@
     APP.comments = "";
     $.get("/route.php?cmd=fetch", function(json) {
         APP.comments = JSON.parse(json);
+        APP.printComments(APP.comments);
     });
+
+    APP._startTime = 500;
+    APP.pictureTransform = {
+        style : {
+            duration : 2000,
+            klass: "skrollable skrollable-before",
+            steps : [
+                {count: 0, value: "top[cubic]:100%;border-radius[cubic]:0em;background:rgb(0,50,100);border-width:0px;"},
+                {count: 2000, value: "top:10%;border-radius:2em;background:rgb(236,240,241);border-width:10px;"}
+            ]
+        }
+    };
+    APP.transforms = [
+        {"style": {
+            duration: 1200,
+            klass: "transform-style-1 skrollable skrollable-before",
+            steps: [
+                {count: 0, value: "transform:scale(0) rotate(0deg);"},
+                {count: 500, value: "transform:scale(1) rotate(1440deg);opacity:1;"},
+                {count: 600, value: ""},
+                {count: 100, value: "transform:scale(5) rotate(3240deg);opacity:0;"}
+            ]
+        }
+        },
+
+        {"style": {
+            duration: 2000,
+            klass: "transform-style-2 skrollable skrollable-before",
+            steps: [
+                {count: 0, value: "top:100%;"},
+                {count: 500, value: "top:0%;"},
+                {count: 800, value: "display:block;"},
+                {count: 700, value: "top:-100%;display:none;"}
+            ]
+
+        }},
+
+        {"style": {
+            duration: 1600,
+            klass: "transform-style-3 skrollable skrollable-between",
+            steps: [
+                {count: 0, value: "left:100%;display:block;"},
+                {count: 700, value: "left:25%;"},
+                {count: 400, value: ""},
+                {count: 500, value: "left:-20%; display:none;"}
+            ]
+        }}
+    ];
+
+    APP.printComments = function(comments) {
+        var wrapper = $(".comments-wrapper");
+        for (var i = 0, len = comments.length; i < len; i++) {
+            var elem = APP.transforms[Math.floor(Math.random()*APP.transforms.length)];
+            var $block = APP._createCommentBlock(comments[i]);
+            APP._stylishCommentBlock($block, elem.style);
+
+            wrapper.append($block);
+        }
+        APP.addPictures();
+        APP.initSkroll();
+    };
+
+    APP._createCommentBlock = function(comment) {
+        var $block = $("<div></div>").addClass("comment-block")
+            .append($("<blockquote></blockquote>")
+                .append($("<p></p>").text(comment.text))
+                .append($("<small></small>").text(comment.owner_name))
+            );
+        return $block;
+    };
+
+    APP._stylishCommentBlock = function($block, style) {
+        var steps = style.steps;
+        $block.addClass(style.klass);
+        for (var i = 0, len = steps.length; i < len; i++) {
+            APP._startTime += steps[i].count;
+            $block.attr("data-" + APP._startTime , steps[i].value);
+        }
+    };
+
+    APP.addPictures = function() {
+        var $block = $("#download");
+        APP._stylishCommentBlock($block, APP.pictureTransform.style);
+    };
+
+    APP.initSkroll = function() {
+        var s = skrollr.init({
+            edgeStrategy: 'set'
+        });
+
+        $("body").css("height", APP._startTime + 1000);
+    }
 </script>
 
 </body>
