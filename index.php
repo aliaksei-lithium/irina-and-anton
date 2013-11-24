@@ -151,7 +151,7 @@
             duration : 2000,
             klass: "skrollable skrollable-before",
             steps : [
-                {count: 0, value: "top[cubic]:100%;border-radius[cubic]:0em;background:rgb(0,50,100);border-width:0px;"},
+                {count: 0, value: "display:block;top[cubic]:100%;border-radius[cubic]:0em;background:rgb(0,50,100);border-width:0px;"},
                 {count: 2000, value: "top:10%;border-radius:2em;background:rgb(236,240,241);border-width:10px;"}
             ]
         }

@@ -16,7 +16,7 @@
     <![endif]-->
 
 </head>
-<body>
+<body onload = "setFocus()">
 <div class="container">
     <div class="row">
         <div class="col-md-4">

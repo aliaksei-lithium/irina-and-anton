@@ -20,6 +20,10 @@
     height: 467px;
 }
 
+#download {
+    display: none;
+}
+
 .galleria-container {
     margin: 0 auto;
 }
@@ -27,6 +31,7 @@
 blockquote {
     border-left: 3px solid #e74c3c;
     max-width: 1000px;
+    word-wrap: break-word;
 }
 
 .transform-style-1 {

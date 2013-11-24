@@ -26,3 +26,7 @@ function submitComment() {
        $form.submit();
    }
 }
+
+function setFocus() {
+    $("#owner-name").focus();
+}
