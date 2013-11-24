@@ -1,3 +1,9 @@
+if (!String.prototype.trim) {
+    String.prototype.trim = function () {
+        return this.replace(/^\s+|\s+$/g, '');
+    };
+}
+
 var APP = APP || {};
 
 function gotoComments() {
@@ -97,7 +103,7 @@ APP.printComments = function(comments) {
 APP._createCommentBlock = function(comment) {
     var $block = $("<div></div>").addClass("comment-block").attr("comm_id", comment.comment_id)
         .append($("<blockquote></blockquote>")
-            .append($("<p></p>").html(comment.text))
+            .append($("<p></p>").text(comment.text.trim()))
             .append($("<small></small>").text(comment.owner_name))
         );
     return $block;

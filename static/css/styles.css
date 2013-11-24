@@ -45,6 +45,11 @@ blockquote {
     word-wrap: break-word;
 }
 
+blockquote p {
+    white-space: pre-wrap;
+}
+
+
 .transform-style-1 {
     transform: scale(0) rotate(0deg);
     opacity: 1;

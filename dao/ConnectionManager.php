@@ -13,7 +13,7 @@ class ConnectionManager
     {
         $link = new mysqli($this->hostname, $this->username, $this->password, $this->database);
 
-        //mysqli_set_charset($link, 'utf8');
+        mysqli_set_charset($link, 'utf8');
 
         $this->mysqli = $link;
 
