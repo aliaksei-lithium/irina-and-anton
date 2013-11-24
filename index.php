@@ -40,7 +40,10 @@
     <p class="lead" >from dear colleagues with love</p>
     <div>
         <img style="cursor: pointer" src="/static/FlatUI/images/icons/svg/gift-box.svg" alt="Gift-Box" onclick="gotoComments();">
-        <button  style = "margin-left: 10px" onclick="gotoComments();" class="btn btn-md btn-primary" >Add your congratulation!</button>
+        <button  style = "margin-left: 10px" onclick="gotoComments();" class="btn btn-md btn-danger" >Add your congratulation!</button>
+		
+		<button  style = "margin-left: 10px" onclick="gotoImages();" class="btn btn-md btn-info" >Gallery</button>
+		<button  style = "margin-left: 10px" onclick="gotoBlog();" class="btn btn-md btn-info" >Blog</button>
     </div>
 <div style = "margin-top: 25px;">
     <a id = "photos-link" href="#photos">Photo gallery</a>
