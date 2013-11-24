@@ -207,7 +207,7 @@
     };
 
     APP._createCommentBlock = function(comment) {
-        var $block = $("<div></div>").addClass("comment-block")
+        var $block = $("<div></div>").addClass("comment-block").attr("comm_id", comment.comment_id)
             .append($("<blockquote></blockquote>")
                 .append($("<p></p>").text(comment.text))
                 .append($("<small></small>").text(comment.owner_name))
