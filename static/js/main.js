@@ -108,12 +108,15 @@ APP._stylishCommentBlock = function($block, style) {
     $block.addClass(style.klass);
     for (var i = 0, len = steps.length; i < len; i++) {
         APP._startTime += steps[i].count;
+        if (i === 0) {
+            $block.attr("data-menu-link", APP._startTime + style.duration);
+        }
         $block.attr("data-" + APP._startTime , steps[i].value);
     }
 };
 
 APP.addPictures = function() {
-    var $block = $("#download");
+    var $block = $("#photos");
     APP._stylishCommentBlock($block, APP.pictureTransform.style);
 };
 
@@ -122,5 +125,17 @@ APP.initSkroll = function() {
         edgeStrategy: 'set'
     });
 
+    skrollr.menu.init(s, {
+
+        animate: false,
+
+        duration: function(currentTop, targetTop) {
+            return 500;
+        }
+
+    });
+
+    $("#photos-link").attr("data-menu-top", $("#photos").attr("data-menu-link"));
+
     $("body").css("height", APP._startTime + 1000);
-}
+};

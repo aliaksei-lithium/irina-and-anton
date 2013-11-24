@@ -22,8 +22,17 @@
     height: 467px;
 }
 
-#download {
+#photos {
     display: none;
+    width:80%;
+    left:10%;
+    height:80%;
+    padding:3em;
+    border:0 solid #555;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .galleria-container {
